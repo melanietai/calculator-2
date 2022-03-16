@@ -84,7 +84,11 @@ while True:
     elif operator == "cube":
         result = cube(float(num1))
     
-    
+    # add power operator
+    elif operator == "pow":
+        result = power(float(num1), float(num2))
+
+    # add mod 
 
     print(result) 
         
