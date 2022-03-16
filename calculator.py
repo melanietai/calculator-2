@@ -89,6 +89,9 @@ while True:
         result = power(float(num1), float(num2))
 
     # add mod 
+    elif operator == "mod":
+        result = mod(float(num1), float(num2))
+    
 
     print(result) 
         
