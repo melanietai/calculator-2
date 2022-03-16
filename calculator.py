@@ -64,6 +64,14 @@ while True:
     elif operator == "+":
         result = add(float(num1), float(num2))
 
+    # add subtraction opperator 
+    elif operator == "-":
+        result = subtract(float(num1), float(num2))
+    
+    
+
+
+
 
     print(result) 
         
