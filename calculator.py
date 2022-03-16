@@ -68,7 +68,9 @@ while True:
     elif operator == "-":
         result = subtract(float(num1), float(num2))
     
-    
+    # add multiplication operator
+    elif operator == "*":
+        result = multiply(float(num1), float(num2))
 
 
 
