@@ -76,7 +76,9 @@ while True:
     elif operator == "/":
         result = divide(float(num1), float(num2))
     
-
+    # add square operator
+    elif operator == "square":
+        result = square(float(num1))
 
 
     print(result) 
