@@ -33,15 +33,40 @@ while True:
         break
 
     # make it so user_input must be greater than two numbers 
-    elif len(token_input) < 3:
+    elif len(token_input) < 2:
         print("You have to input more than two numbers!")
         continue
+
+    # create variables for operating functions and our first number input
+    operator = token_input[0]
+    num1 = token_input[1]
+
+    # create if statements for num 2 and num 3 
+    if len(token_input) < 3:
+        num2 = "0"
+    else:
+        num2 = token_input[2]
+    
+    if len(token_input) > 3:
+        num3 = token_input[3]
 
     # if user enter add, we call the add function, and repeat for other calculations
     # ex: + 2 3 
     if token_input[0] == "+":
         sum = add(int(token_input[1]), int(token_input[2]))
         print(sum)
+
+    # if user wants to subract, we call the sub function and repeat for other calculations
+    # ex - 2 3 
+   
+    if token_input[0] == "-":
+        
+        s = subtract(int(token_input[1]), int(token_input[2]))
+        print(s)
+        
+
+
+    
 
 
 #     input = consume_input()
