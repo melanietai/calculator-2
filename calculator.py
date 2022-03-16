@@ -34,7 +34,7 @@ while True:
 
     # make it so user_input must be greater than two numbers 
     elif len(token_input) < 2:
-        print("You have to input more than two inputs!")
+        print("You have to input at least two inputs!")
         continue
 
     # create variables for operating functions and our first number input
@@ -80,6 +80,11 @@ while True:
     elif operator == "square":
         result = square(float(num1))
 
+    # add cube operator
+    elif operator == "cube":
+        result = cube(float(num1))
+    
+    
 
     print(result) 
         
