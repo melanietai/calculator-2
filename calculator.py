@@ -31,9 +31,15 @@ while True:
     if q in token_input:
         print("Exit")
         break
-    
+
+    # make it so user_input must be greater than two numbers 
+    elif len(token_input) < 3:
+        print("You have to input more than two numbers!")
+        continue
 
     # if user enter add, we call the add function, and repeat for other calculations
+    # ex: + 2 3 
+    
 
 #     input = consume_input()
 #     output = evaluate_input(input)
