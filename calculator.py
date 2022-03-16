@@ -28,7 +28,7 @@ while True:
     token_input = user_input.split(" ")
     
     # if user presses q, exit calculator 
-    if q in token_input:
+    if "q" in token_input:
         print("Exit")
         break
 
@@ -39,7 +39,10 @@ while True:
 
     # if user enter add, we call the add function, and repeat for other calculations
     # ex: + 2 3 
-    
+    if token_input[0] == "+":
+        sum = add(int(token_input[1]), int(token_input[2]))
+        print(sum)
+
 
 #     input = consume_input()
 #     output = evaluate_input(input)
