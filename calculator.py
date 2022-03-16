@@ -64,7 +64,7 @@ while True:
     elif operator == "+":
         result = add(float(num1), float(num2))
 
-    # add subtraction opperator 
+    # add subtraction operator 
     elif operator == "-":
         result = subtract(float(num1), float(num2))
     
@@ -72,6 +72,10 @@ while True:
     elif operator == "*":
         result = multiply(float(num1), float(num2))
 
+    # add division operator 
+    elif operator == "/":
+        result = divide(float(num1), float(num2))
+    
 
 
 
