@@ -3,28 +3,12 @@
 from arithmetic import (add, subtract, multiply, divide, square, cube,
                         power, mod, add_mult, add_cubes)
 
-
-# Replace this with your code
-"""Use 'pow' to call the power function with other tokens"""
-
-# repeat forever:
-#     read input
-#     tokenize input
-#         if the first token is "q":
-#             quit
-#         else:
-#             (decide which math function to call based on first token)
-#             if the first token is 'pow':
-#                   call the power function with the other two tokens
-
-#             (...etc.)
-
-# while exit_condition_not_reached:
+from functools import reduce
 
 while True:
     # ask user what they would like to calculate
     user_input = (input("What would you like to calculate?: "))
-    # creating a variable token that takes the user input and creates a tokenized list
+    # creating a tokenized list from user input
     token_input = user_input.split(" ")
     
     # if user presses q, exit calculator 
@@ -32,77 +16,73 @@ while True:
         print("Exit")
         break
 
-    # make it so user_input must be greater than two numbers 
-    elif len(token_input) < 2:
-        print("You have to input at least two inputs!")
-        continue
-
-    # create variables for operating functions and our first number input
+    # create variables for operator and list of nums to be calculated
     operator = token_input[0]
-    num1 = token_input[1]
-
-    # create if statements for num 2 and num 3 
-    if len(token_input) < 3:
-        num2 = "0"
-    
-    else:
-        num2 = token_input[2]
-        
-    
-    if len(token_input) > 3:
-        num3 = token_input[3]
+    nums = token_input[1:]
 
     result = None
 
     # make sure our user is inputting actual numbers!
-    if not num1.isdigit() or not num2.isdigit():
-        print("Sorry! You have to enter numbers!")
+    is_all_digit = True
+    for i, num in enumerate(nums):
+        if not num.isdigit():
+            print("Sorry! You have to enter numbers!")
+            is_all_digit = False
+            break
+        else:
+            # convert numbers into float
+            nums[i] = float(num)
+
+    # if not all numbers, continue back loop to ask for user input        
+    if not is_all_digit:
         continue
 
+    # another way to convert to float: nums = [float(num) for num in nums]    
+
     # if user enter add, we call the add function, and repeat for other calculations
-    # ex: + 2 3 
-    elif operator == "+":
-        result = add(float(num1), float(num2))
+    # ex: + 2 3  
+    if operator == "+":
+        result = reduce(add, nums)
 
     # add subtraction operator 
     elif operator == "-":
-        result = subtract(float(num1), float(num2))
+        result = reduce(subtract, nums)
     
     # add multiplication operator
     elif operator == "*":
-        result = multiply(float(num1), float(num2))
+        result = reduce(multiply, nums)
 
     # add division operator 
     elif operator == "/":
-        result = divide(float(num1), float(num2))
+        result = reduce(divide, nums)
     
     # add square operator
     elif operator == "square":
-        result = square(float(num1))
+        result = reduce(square, nums)
 
     # add cube operator
     elif operator == "cube":
-        result = cube(float(num1))
+        result = reduce(cube, nums)
     
     # add power operator
     elif operator == "pow":
-        result = power(float(num1), float(num2))
+        result = reduce(power, nums)
 
     # add mod 
     elif operator == "mod":
-        result = mod(float(num1), float(num2))
+        result = reduce(mod, nums)
     
     # add x+
     elif operator == "x+":
-        result = add_mult(float(num1), float(num2), float(num3))
+        result = reduce(add_mult, nums)
     
     # add cubes
     elif operator == "cubes+":
-        result = add_cubes(float(num1), float(num2))
+        result = reduce(add_cubes, nums)
 
     # else statement telling users to input operator and intergers...in case they didn't
     else:
-        print("Please enter an operator followed by one to three intergers!")
+        print("Please enter an operator followed by numbers.")
 
     print(result) 
         
@@ -114,7 +94,3 @@ while True:
 
     
 
-
-#     input = consume_input()
-#     output = evaluate_input(input)
-#     print(output)
