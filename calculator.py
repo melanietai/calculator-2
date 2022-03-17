@@ -96,6 +96,9 @@ while True:
     elif operator == "x+":
         result = add_mult(float(num1), float(num2), float(num3))
     
+    # add cubes
+    elif operator == "cubes+":
+        result = add_cubes(float(num1), float(num2))
 
     print(result) 
         
