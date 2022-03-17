@@ -100,6 +100,10 @@ while True:
     elif operator == "cubes+":
         result = add_cubes(float(num1), float(num2))
 
+    # else statement telling users to input operator and intergers...in case they didn't
+    else:
+        print("Please enter an operator followed by one to three intergers!")
+
     print(result) 
         
 
