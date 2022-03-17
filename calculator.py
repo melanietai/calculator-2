@@ -1,7 +1,7 @@
 """CLI application for a prefix-notation calculator."""
 
 from arithmetic import (add, subtract, multiply, divide, square, cube,
-                        power, mod, )
+                        power, mod, add_mult, add_cubes)
 
 
 # Replace this with your code
@@ -92,12 +92,14 @@ while True:
     elif operator == "mod":
         result = mod(float(num1), float(num2))
     
+    # add x+
+    elif operator == "x+":
+        result = add_mult(float(num1), float(num2), float(num3))
+    
 
     print(result) 
         
 
-    # if user wants to subract, we call the sub function and repeat for other calculations
-    # ex - 2 3 
    
     
         
